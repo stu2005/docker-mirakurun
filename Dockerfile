@@ -20,8 +20,16 @@ RUN apk add --no-cache \
         v4l-utils-libs \
         v4l-utils-dvbv5 \
         bash \
+        pcsc-lite-libs \
+        pcsc-lite
 && echo "@testing http://dl-cdn.alpinelinux.org/alpine/edge/testing" >>/etc/apk/repositories \
-&& apk add --no-cache pcsc-tools@testing
+&& apk add --no-cache pcsc-tools@testing \
+&& mkdir /run/openrc && \
+	touch /run/openrc/softlevel && \
+	\
+	sed -i -e 's/cgroup_add_service$/# cgroup_add_service/g' /lib/rc/sh/openrc-run.sh && \
+	\
+	rc-status
 COPY --from=build /usr/local/lib/node_modules/mirakurun /app
 COPY ./container-init.sh /usr/local/bin/
 CMD ["/usr/local/bin/container-init.sh"]
