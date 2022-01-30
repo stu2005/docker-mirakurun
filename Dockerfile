@@ -31,6 +31,5 @@ RUN apk add --no-cache \
 	\
 	rc-status
 COPY --from=build /usr/local/lib/node_modules/mirakurun /app
-COPY ./container-init.sh /usr/local/bin/
-CMD ["/usr/local/bin/container-init.sh"]
+CMD ["./docker/container-init.sh"]
 EXPOSE 40772 9229
