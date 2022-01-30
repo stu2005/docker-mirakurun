@@ -21,7 +21,7 @@ RUN apk add --no-cache \
         v4l-utils-dvbv5 \
         bash \
         pcsc-lite-libs \
-        pcsc-lite
+        pcsc-lite \
 && echo "@testing http://dl-cdn.alpinelinux.org/alpine/edge/testing" >>/etc/apk/repositories \
 && apk add --no-cache pcsc-tools@testing \
 && mkdir /run/openrc && \
