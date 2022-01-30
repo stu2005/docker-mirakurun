@@ -22,6 +22,7 @@ RUN apk add --no-cache \
         bash \
         pcsc-lite-libs \
         pcsc-lite \
+        libc6-compat \
 && echo "@testing http://dl-cdn.alpinelinux.org/alpine/edge/testing" >>/etc/apk/repositories \
 && apk add --no-cache pcsc-tools@testing \
 && mkdir /run/openrc && \
