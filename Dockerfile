@@ -30,5 +30,5 @@ CMD mkdir /run/openrc \
 && touch /run/openrc/softlevel \
 && sed -i -e 's/cgroup_add_service$/# cgroup_add_service/g' /lib/rc/sh/openrc-run.sh \
 && rc-status \
-&& ./docker/container-init.sh"
+&& ./docker/container-init.sh
 EXPOSE 40772 9229
