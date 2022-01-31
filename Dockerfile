@@ -24,7 +24,7 @@ RUN echo "@testing http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/ap
         ccid \
         v4l-utils-libs \
         pcsc-tools@testing \
-        v4l-utils-dvbv5 
+        v4l-utils-dvbv5 \
         bash \
         libc6-compat && \
     mkdir /run/openrc && \
