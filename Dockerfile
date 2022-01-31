@@ -26,7 +26,8 @@ RUN echo "@testing http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/ap
         pcsc-tools@testing \
         v4l-utils-dvbv5 \
         bash \
-        libc6-compat && \
+        libc6-compat \
+        gcompat && \
     mkdir /run/openrc && \
     touch /run/openrc/softlevel && \
     sed -i -e 's/cgroup_add_service$/# cgroup_add_service/g' /lib/rc/sh/openrc-run.sh && \
