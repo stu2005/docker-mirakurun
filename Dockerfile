@@ -2,7 +2,8 @@
 FROM node:16-alpine AS mirakurun-build
 
 ENV DOCKER="YES"
-RUN npm install mirakurun -g --unsafe-perm --production
+RUN apk add --no-cache alpine-sdk && \
+    npm install mirakurun -g --unsafe-perm --production
 # final image
 FROM node:16-alpine
 
