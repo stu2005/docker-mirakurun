@@ -25,10 +25,10 @@ pcsc-lite \
 libc6-compat \
 && echo "@testing http://dl-cdn.alpinelinux.org/alpine/edge/testing" >>/etc/apk/repositories \
 && apk add --no-cache pcsc-tools@testing
-ENTRYPOINT mkdir /run/openrc \
+COPY --from=build /usr/local/lib/node_modules/mirakurun /app
+CMD mkdir /run/openrc \
 && touch /run/openrc/softlevel \
 && sed -i -e 's/cgroup_add_service$/# cgroup_add_service/g' /lib/rc/sh/openrc-run.sh \
-&& rc-status
-COPY --from=build /usr/local/lib/node_modules/mirakurun /app
-CMD ["./docker/container-init.sh"]
+&& rc-status \
+&& ./docker/container-init.sh"
 EXPOSE 40772 9229
