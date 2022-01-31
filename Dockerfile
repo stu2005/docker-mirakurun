@@ -24,8 +24,8 @@ pcsc-lite-libs \
 pcsc-lite \
 libc6-compat \
 && echo "@testing http://dl-cdn.alpinelinux.org/alpine/edge/testing" >>/etc/apk/repositories \
-&& apk add --no-cache pcsc-tools@testing \
-&& mkdir /run/openrc \
+&& apk add --no-cache pcsc-tools@testing
+ENTRYPOINT mkdir /run/openrc \
 && touch /run/openrc/softlevel \
 && sed -i -e 's/cgroup_add_service$/# cgroup_add_service/g' /lib/rc/sh/openrc-run.sh \
 && rc-status
